@@ -3,7 +3,7 @@ Feature: A101 Test Otomasyonu
   Uçtan uca ödeme ekranına kadar test otomasyonu.
 
   @wip
-Scenario: Kullanıcı A101 sayfasından dizaltı siyah corap siparisi verir
+Scenario: Kullanıcı A101 sayfasında üye olmadan dizaltı siyah corap siparisi verir
 
   Given kullanıcı A101 Web sitesine gider ve cerezleri kabul eder
   When  kullanıcı "Giyim & Aksesuar" kategorisini tıklar
