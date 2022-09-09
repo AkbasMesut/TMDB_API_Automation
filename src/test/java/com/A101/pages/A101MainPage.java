@@ -43,4 +43,66 @@ public class A101MainPage extends BasePage {
 
     @FindBy(xpath = "//a[@title='ÜYE OLMADAN DEVAM ET']")
     public WebElement üyeOlmadanDevamEt;
+
+    @FindBy(xpath = "//input[@name='user_email']")
+    public WebElement emailKutusu;
+
+    @FindBy(xpath = "(//a[@title='Yeni adres oluştur'])[1]")
+    public WebElement yeniAdresOluştur;
+
+    @FindBy(xpath = "//input[@name='title']")
+    public WebElement adresBaşlığı;
+
+    @FindBy(xpath = "//input[@name='first_name']")
+    public WebElement ad;
+
+    @FindBy(name = "last_name")
+    public WebElement soyadı;
+
+    @FindBy(name = "phone_number")
+    public WebElement cepTelefonu;
+
+    @FindBy(xpath = "//select[@name='city']")
+    public WebElement şehir;
+
+    @FindBy(xpath = "//select[@name='township']")
+    public WebElement ilçe;
+
+    @FindBy(xpath = "//select[@name='district']")
+    public WebElement mahalle;
+
+    @FindBy(xpath = "//textarea[@class='js-address-textarea']")
+    public WebElement adres;
+
+    @FindBy(xpath = "//input[@name='postcode']")
+    public WebElement postaKodu;
+
+    @FindBy(xpath = "//button[@class='button green js-set-country js-prevent-emoji']")
+    public WebElement kaydet;
+
+    @FindBy(xpath = "//button[@data-index='1']")
+    public WebElement kaydetVeDevamEtButonu;
+
+    @FindBy(xpath = "(//div[@data-type='masterpass'])[1]")
+    public WebElement kartİleÖdeme;
+
+    @FindBy(xpath = "(//div[@onclick='persona_PopupClose();'])[1]")
+    public WebElement popUpPencere;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
