@@ -30,7 +30,7 @@ public class A101TestStepDefinition {
     @When("kullanıcı {string} kategorisini tıklar")
     public void kullanıcı_kategorisini_tıklar(String string) {
         a101MainPage.giyimAksesuar.click();
-        BrowserUtils.waitForPageToLoad(5);
+        BrowserUtils.waitFor(3);
     }
 
     @When("kullanıcı {string}   kategorisini tıklar")
@@ -40,7 +40,7 @@ public class A101TestStepDefinition {
 
     @When("kullanıcı {string} alt kategorisini tıklar")
     public void kullanıcı_alt_kategorisini_tıklar(String string) {
-        BrowserUtils.waitForPageToLoad(5);
+        BrowserUtils.waitFor(3);
         try {
             a101MainPage.dizaltiCorap.click();
         }catch (ElementClickInterceptedException e){
@@ -54,18 +54,14 @@ public class A101TestStepDefinition {
         try{
             a101MainPage.siyahRenkCheckBox.click();
         }catch (Exception e){
-            BrowserUtils.selectCheckBox(a101MainPage.siyahRenkCheckBox,true);
+            BrowserUtils.waitFor(3);
+            a101MainPage.siyahRenkCheckBox.click();
         }
     }
 
     @When("kullanıcı açılan ilk ürünü seçer ve siyah olduğunu doğrular")
     public void kullanıcı_açılan_ilk_ürünü_seçer_ve_siyah_olduğunu_doğrular() {
-        try {
-            a101MainPage.ilkÜrün.click();
-        }catch (Exception e){
-            BrowserUtils.waitForClickablility(a101MainPage.ilkÜrün,10);
-            a101MainPage.ilkÜrün.click();
-        }
+        BrowserUtils.clickWithJS(a101MainPage.ilkÜrün);
         String expectedResult = "SİYAH";
         String actualResult = a101MainPage.seçilenRenk.getText();
         Assert.assertEquals(expectedResult, actualResult);

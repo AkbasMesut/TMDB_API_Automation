@@ -23,7 +23,7 @@ public class A101MainPage extends BasePage {
     @FindBy(xpath = "//a[@data-value='1567']")
     public WebElement dizaltiCorap;
 
-    @FindBy(id="attributes_integration_colourSİYAH")
+    @FindBy(xpath="//label[@for='attributes_integration_colourSİYAH']")
     public WebElement siyahRenkCheckBox;
 
     @FindBy(xpath = "(//img[@class=' ls-is-cached lazyloaded'])[1]")
