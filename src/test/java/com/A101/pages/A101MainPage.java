@@ -26,7 +26,7 @@ public class A101MainPage extends BasePage {
     @FindBy(xpath="//label[@for='attributes_integration_colourSİYAH']")
     public WebElement siyahRenkCheckBox;
 
-    @FindBy(xpath = "(//img[@class=' ls-is-cached lazyloaded'])[1]")
+    @FindBy(xpath = "(//figure[@class='product-image '])[1]")
     public WebElement ilkÜrün;
 
     @FindBy(xpath = "//div[@class='selected-variant-text']/span")
@@ -77,7 +77,7 @@ public class A101MainPage extends BasePage {
     @FindBy(xpath = "//input[@name='postcode']")
     public WebElement postaKodu;
 
-    @FindBy(xpath = "//button[@class='button green js-set-country js-prevent-emoji']")
+    @FindBy(css = "button[class='button green js-set-country js-prevent-emoji']")
     public WebElement kaydet;
 
     @FindBy(xpath = "//button[@data-index='1']")

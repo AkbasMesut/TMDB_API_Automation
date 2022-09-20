@@ -61,7 +61,8 @@ public class A101TestStepDefinition {
 
     @When("kullanıcı açılan ilk ürünü seçer ve siyah olduğunu doğrular")
     public void kullanıcı_açılan_ilk_ürünü_seçer_ve_siyah_olduğunu_doğrular() {
-        BrowserUtils.clickWithJS(a101MainPage.ilkÜrün);
+        BrowserUtils.waitFor(3);
+        a101MainPage.ilkÜrün.click();
         String expectedResult = "SİYAH";
         String actualResult = a101MainPage.seçilenRenk.getText();
         Assert.assertEquals(expectedResult, actualResult);
@@ -119,7 +120,6 @@ public class A101TestStepDefinition {
             BrowserUtils.waitForStaleElement(a101MainPage.adres,10);
             a101MainPage.adres.sendKeys(faker.address().fullAddress());
         }
-        a101MainPage.postaKodu.sendKeys("06210", Keys.ENTER);
         a101MainPage.kaydet.click();
     }
 
