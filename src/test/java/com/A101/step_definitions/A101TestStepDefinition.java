@@ -11,7 +11,9 @@ import io.cucumber.java.en.When;
 import net.bytebuddy.asm.Advice;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -20,6 +22,7 @@ import static org.openqa.selenium.Keys.ENTER;
 public class A101TestStepDefinition {
 
     A101MainPage a101MainPage = new A101MainPage();
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @Given("kullanıcı A101 Web sitesine gider ve cerezleri kabul eder")
     public void kullanıcı_a101_web_sitesine_gider_ve_cerezleri_kabul_eder() {
@@ -30,38 +33,31 @@ public class A101TestStepDefinition {
     @When("kullanıcı {string} kategorisini tıklar")
     public void kullanıcı_kategorisini_tıklar(String string) {
         a101MainPage.giyimAksesuar.click();
-        BrowserUtils.waitFor(3);
     }
 
     @When("kullanıcı {string}   kategorisini tıklar")
     public void kullanıcı__kategorisini_tıklar(String string) {
+        wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.kadınIcGiyim));
         a101MainPage.kadınIcGiyim.click();
     }
 
     @When("kullanıcı {string} alt kategorisini tıklar")
     public void kullanıcı_alt_kategorisini_tıklar(String string) {
-        BrowserUtils.waitFor(3);
-        try {
-            a101MainPage.dizaltiCorap.click();
-        }catch (ElementClickInterceptedException e){
-            BrowserUtils.waitForClickablility(a101MainPage.dizaltiCorap,10);
-            a101MainPage.dizaltiCorap.click();
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.dizaltiCorap));
+        a101MainPage.dizaltiCorap.click();
+
     }
 
     @When("kullanıcı {string} renk filtresini tıklar")
     public void kullanıcı_renk_filtresini_tıklar(String string) {
-        try{
-            a101MainPage.siyahRenkCheckBox.click();
-        }catch (Exception e){
-            BrowserUtils.waitFor(3);
-            a101MainPage.siyahRenkCheckBox.click();
-        }
+        wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.siyahRenkCheckBox));
+        a101MainPage.siyahRenkCheckBox.click();
+
     }
 
     @When("kullanıcı açılan ilk ürünü seçer ve siyah olduğunu doğrular")
     public void kullanıcı_açılan_ilk_ürünü_seçer_ve_siyah_olduğunu_doğrular() {
-        BrowserUtils.waitFor(3);
+        wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.ilkÜrün));
         a101MainPage.ilkÜrün.click();
         String expectedResult = "SİYAH";
         String actualResult = a101MainPage.seçilenRenk.getText();
@@ -113,19 +109,14 @@ public class A101TestStepDefinition {
         Select mahalle = new Select(a101MainPage.mahalle);
         BrowserUtils.waitFor(3);
         mahalle.selectByVisibleText("ATIFBEY MAH");
-
-        try {
-            a101MainPage.adres.sendKeys(faker.address().fullAddress());
-        }catch (StaleElementReferenceException e){
-            BrowserUtils.waitForStaleElement(a101MainPage.adres,10);
-            a101MainPage.adres.sendKeys(faker.address().fullAddress());
-        }
+        BrowserUtils.waitFor(3);
+        a101MainPage.adres.sendKeys(faker.address().fullAddress());
         a101MainPage.kaydet.click();
     }
 
     @When("kullanıcı {string} butonuna basar")
     public void kullanıcı_butonuna_basar(String string) {
-        BrowserUtils.waitFor(3);
+        wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.kaydetVeDevamEtButonu));
         a101MainPage.kaydetVeDevamEtButonu.click();
     }
 
