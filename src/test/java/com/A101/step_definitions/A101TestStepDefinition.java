@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -124,7 +125,7 @@ public class A101TestStepDefinition {
     public void kullanıcı_ödeme_ekranının_açıldığını_doğrular() {
         String expectedResult = "masterpass";
         String actualResult = a101MainPage.kartİleÖdeme.getAttribute("data-slug");
-        BrowserUtils.waitForVisibility(a101MainPage.kartİleÖdeme, 10);
+        wait.until(ExpectedConditions.visibilityOf(a101MainPage.kartİleÖdeme));
         Assert.assertEquals(expectedResult, actualResult);
     }
 
