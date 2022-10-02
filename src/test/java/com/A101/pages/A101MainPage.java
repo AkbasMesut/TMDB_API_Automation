@@ -20,7 +20,7 @@ public class A101MainPage extends BasePage {
     @FindBy(xpath = "(//a[@href='/giyim-aksesuar/kadin-ic-giyim/'])[2]")
     public WebElement kadınIcGiyim;
 
-    @FindBy(xpath = "//a[@data-value='1567']")
+    @FindBy(partialLinkText = "Dizaltı Çorap")
     public WebElement dizaltiCorap;
 
     @FindBy(xpath="//label[@for='attributes_integration_colourSİYAH']")
@@ -30,7 +30,7 @@ public class A101MainPage extends BasePage {
     public WebElement ilkÜrün;
 
     @FindBy(xpath = "//div[@class='selected-variant-text']/span")
-    public WebElement seçilenRenk;
+    public WebElement secilenRenk;
 
     @FindBy(xpath = "//i[@class='icon-sepetekle']")
     public WebElement sepeteEkle;
@@ -50,10 +50,10 @@ public class A101MainPage extends BasePage {
     @FindBy(xpath = "(//a[@title='Yeni adres oluştur'])[1]")
     public WebElement yeniAdresOluştur;
 
-    @FindBy(xpath = "//input[@name='title']")
+    @FindBy(name = "title")
     public WebElement adresBaşlığı;
 
-    @FindBy(xpath = "//input[@name='first_name']")
+    @FindBy(name = "first_name")
     public WebElement ad;
 
     @FindBy(name = "last_name")
@@ -62,29 +62,29 @@ public class A101MainPage extends BasePage {
     @FindBy(name = "phone_number")
     public WebElement cepTelefonu;
 
-    @FindBy(xpath = "//select[@name='city']")
+    @FindBy(name = "city")
     public WebElement şehir;
 
-    @FindBy(xpath = "//select[@name='township']")
-    public WebElement ilçe;
+    @FindBy(name = "township")
+    public WebElement ilce;
 
-    @FindBy(xpath = "//select[@name='district']")
+    @FindBy(name = "district")
     public WebElement mahalle;
 
-    @FindBy(xpath = "//textarea[@class='js-address-textarea']")
+    @FindBy(name = "line")
     public WebElement adres;
 
-    @FindBy(xpath = "//input[@name='postcode']")
-    public WebElement postaKodu;
-
-    @FindBy(css = "button[class='button green js-set-country js-prevent-emoji']")
+    @FindBy(xpath = "//button[@class='button green address-modal-submit-button js-set-country js-prevent-emoji js-address-form-submit-button']")
     public WebElement kaydet;
+
+    @FindBy(xpath = "//input[@value='333']")
+    public WebElement kargoCheckBox;
 
     @FindBy(xpath = "//button[@data-index='1']")
     public WebElement kaydetVeDevamEtButonu;
 
-    @FindBy(xpath = "(//div[@data-type='masterpass'])[1]")
-    public WebElement kartİleÖdeme;
+    @FindBy(linkText = "2. ÖDEME SEÇENEKLERİ")
+    public WebElement kartIleOdeme;
 
     @FindBy(xpath = "(//div[@onclick='persona_PopupClose();'])[1]")
     public WebElement popUpPencere;

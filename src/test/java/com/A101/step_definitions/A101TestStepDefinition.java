@@ -23,7 +23,7 @@ import static org.openqa.selenium.Keys.ENTER;
 public class A101TestStepDefinition {
 
     A101MainPage a101MainPage = new A101MainPage();
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
 
     @Given("kullanıcı A101 Web sitesine gider ve cerezleri kabul eder")
     public void kullanıcı_a101_web_sitesine_gider_ve_cerezleri_kabul_eder() {
@@ -34,19 +34,19 @@ public class A101TestStepDefinition {
     @When("kullanıcı {string} kategorisini tıklar")
     public void kullanıcı_kategorisini_tıklar(String string) {
         a101MainPage.giyimAksesuar.click();
+        BrowserUtils.waitFor(3);
     }
 
     @When("kullanıcı {string}   kategorisini tıklar")
     public void kullanıcı__kategorisini_tıklar(String string) {
-        wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.kadınIcGiyim));
         a101MainPage.kadınIcGiyim.click();
+        BrowserUtils.waitFor(3);
     }
 
     @When("kullanıcı {string} alt kategorisini tıklar")
     public void kullanıcı_alt_kategorisini_tıklar(String string) {
-        wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.dizaltiCorap));
         a101MainPage.dizaltiCorap.click();
-
+        BrowserUtils.waitFor(3);
     }
 
     @When("kullanıcı {string} renk filtresini tıklar")
@@ -61,9 +61,9 @@ public class A101TestStepDefinition {
         wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.ilkÜrün));
         a101MainPage.ilkÜrün.click();
         String expectedResult = "SİYAH";
-        String actualResult = a101MainPage.seçilenRenk.getText();
+        String actualResult = a101MainPage.secilenRenk.getText();
         Assert.assertEquals(expectedResult, actualResult);
-        System.out.println(a101MainPage.seçilenRenk.getText());
+        System.out.println(a101MainPage.secilenRenk.getText());
     }
 
     @When("kullanıcı sepete ekle butonuna tıklar")
@@ -105,27 +105,27 @@ public class A101TestStepDefinition {
         a101MainPage.cepTelefonu.sendKeys(faker.phoneNumber().cellPhone());
         Select il = new Select(a101MainPage.şehir);
         il.selectByIndex(2);
-        Select ilçe = new Select(a101MainPage.ilçe);
+        Select ilçe = new Select(a101MainPage.ilce);
         ilçe.selectByIndex(2);
         Select mahalle = new Select(a101MainPage.mahalle);
         BrowserUtils.waitFor(3);
         mahalle.selectByVisibleText("ATIFBEY MAH");
-        BrowserUtils.waitFor(3);
         a101MainPage.adres.sendKeys(faker.address().fullAddress());
         a101MainPage.kaydet.click();
     }
 
     @When("kullanıcı {string} butonuna basar")
     public void kullanıcı_butonuna_basar(String string) {
+       // a101MainPage.kargoCheckBox.click();
         wait.until(ExpectedConditions.elementToBeClickable(a101MainPage.kaydetVeDevamEtButonu));
         a101MainPage.kaydetVeDevamEtButonu.click();
     }
 
     @Then("kullanıcı ödeme ekranının açıldığını doğrular")
     public void kullanıcı_ödeme_ekranının_açıldığını_doğrular() {
-        String expectedResult = "masterpass";
-        String actualResult = a101MainPage.kartİleÖdeme.getAttribute("data-slug");
-        wait.until(ExpectedConditions.visibilityOf(a101MainPage.kartİleÖdeme));
+        String expectedResult = "2. ÖDEME SEÇENEKLERİ";
+        String actualResult = a101MainPage.kartIleOdeme.getText();
+        wait.until(ExpectedConditions.visibilityOf(a101MainPage.kartIleOdeme));
         Assert.assertEquals(expectedResult, actualResult);
     }
 
