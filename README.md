@@ -1,3 +1,3 @@
 # A101_Test_Practicum
 
-used cucumber framwork with gherkin language 
+used cucumber framework with gherkin language 
