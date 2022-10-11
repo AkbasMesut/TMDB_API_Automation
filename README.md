@@ -1,3 +1,3 @@
 # A101_Test_Practicum
 
-used cucumber framwork with ghiren language 
+used cucumber framwork with gherkin language 
