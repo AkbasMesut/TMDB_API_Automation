@@ -1,3 +1,7 @@
-# A101_Test_Practicum
+# A101 Test Automation
 
-used cucumber framework with gherkin language 
+This project used cucumber framework with gherkin language.
+
+## Test Steps
+- go to www.a101.com.tr
+- 
