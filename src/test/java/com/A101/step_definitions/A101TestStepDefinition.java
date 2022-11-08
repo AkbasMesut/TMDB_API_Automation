@@ -28,7 +28,7 @@ public class A101TestStepDefinition {
     @Given("kullanıcı A101 Web sitesine gider ve cerezleri kabul eder")
     public void kullanıcı_a101_web_sitesine_gider_ve_cerezleri_kabul_eder() {
         Driver.getDriver().get(ConfigurationReader.getProperty("A101.url"));
-        a101MainPage.cerezKullanımı.click();
+     //   a101MainPage.cerezKullanımı.click();
     }
 
     @When("kullanıcı {string} kategorisini tıklar")
